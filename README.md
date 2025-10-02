@@ -4,4 +4,4 @@ Example of an MVC design based on Swing. Answer questions 1 & 2 in this README f
 1. Swing is a GUI toolkit for Java that provides things like buttons, check boxes, trees, lists, and tables.
 It was created as an extension of the Abstract Window Toolkit, a similar Java GUI toolkit. Newer, more sophisticated components were needed as programs and UIs evolved, 
 and the AWT was too limited. Swing provides more flexible components, is loosely coupled, and makes use of the MVC design pattern unlike AWT.
-![Class Diagram](Swing Class Diagram.png)
+![Class Diagram](swingclassdiagram.PNG)
