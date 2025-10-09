@@ -7,9 +7,10 @@ public class MySwingMVCApp {
 		  Model m = new Model("Sylvain", "Saurel");
 		  View v = new View("MVC with SSaurel");
 		  Controller c = new Controller(m, v);
+		  CashRegister test = new CashRegister();
 		  
 		  // create scanner
-		  Scanner scanner = new Scanner();
+		  Scanner scanner = new Scanner(test);
 		  
 		  c.initController();
 	}
