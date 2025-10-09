@@ -19,4 +19,4 @@ This differs from the typical MVC design pattern by not decoupling some of the c
 
 3. Code can be found in repository. 
 
-4. ![Sequence Diagram](image.PNG)
+4. ![Sequence Diagram](image.png)
