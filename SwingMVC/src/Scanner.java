@@ -6,8 +6,10 @@ import java.awt.BorderLayout;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
-
+import javax.swing.JLabel;
 import javax.swing.JPanel;
+import javax.swing.JTextField;
+import javax.swing.JOptionPane;
 
 
 public class Scanner {
@@ -15,8 +17,13 @@ public class Scanner {
 	 private JFrame frame;
 	 private JPanel scannerPanel;
 	 private JButton scanButton;
+	 private CashRegister cashRegister;
+    private JTextField upcField;
+
 	 
-	 public Scanner() {
+	 public Scanner(CashRegister cashRegister) {
+		 this.cashRegister = cashRegister;
+
 		  frame = new JFrame("Scanner");
 		  frame.getContentPane().setLayout(new BorderLayout());
 		  frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -27,19 +34,40 @@ public class Scanner {
 		  
 		  // Create UI elements
 		  scanButton = new JButton("Scan");
+		upcField = new JTextField(10);
+		JLabel upcLabel = new JLabel("UPC:");
 		  scannerPanel = new JPanel();
 		  
 		  // Add UI element to frame
-		  scannerPanel.add(scanButton);
+		scannerPanel.add(upcLabel);
+		scannerPanel.add(upcField);
+ 		 scannerPanel.add(scanButton);
 		  frame.getContentPane().add(scannerPanel);
-		  
-		  scanButton.addActionListener(e -> generateUPC());
+
+ 		 scanButton.addActionListener(e -> {
+			String text = upcField.getText().trim();
+			if(text.isEmpty()){
+				// fallback to default generated UPC
+				generateUPC();
+				return;
+			}
+
+			try{
+				int upc = Integer.parseInt(text);
+				cashRegister.onScan(upc);
+				System.out.println(upc);
+			} catch(NumberFormatException ex){
+				JOptionPane.showMessageDialog(frame, "Please enter a valid numeric UPC", "Invalid UPC", JOptionPane.ERROR_MESSAGE);
+			}
+		});
 	 }
 
 	private int generateUPC() {
-		int upcCode = 12345; 
-		System.out.println(upcCode);
-		return upcCode;
+ 		cashRegister.onScan();
+
+ 		int upcCode = 12345; 
+ 		System.out.println(upcCode);
+ 		return upcCode;
 	}
 
 	public JFrame getFrame() {
