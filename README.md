@@ -1,3 +1,15 @@
+
+Work Distribution - Group 30
+
+| Name | Task | 
+|---|---|
+| Madhav Patel (100820184) | Question 3 | 
+| Nathan Tenn (100795860)| Question 1&2 | 
+| Edgar Aguilar Guerrero(100823444) | Question 4 | 
+
+
+
+
 [![Review Assignment Due Date](https://classroom.github.com/assets/deadline-readme-button-22041afd0340ce965d47ae6ef1cefeee28c7c493a6346c4f15d667ab976d596c.svg)](https://classroom.github.com/a/57HVEcop)
 Example of an MVC design based on Swing. Answer questions 1 & 2 in this README file.
 
